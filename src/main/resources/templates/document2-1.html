@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="ko">
+=======
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+>>>>>>> test
 
 <head>
   <meta charset="UTF-8" />
   <title>기본 진정서</title>
+<<<<<<< HEAD
   <link rel="stylesheet" th:href="@{/css/header.css}">
+=======
+>>>>>>> test
   <style>
     body {
       margin: 0;
@@ -17,7 +24,11 @@
     }
 
     .form-container {
+<<<<<<< HEAD
       width: 100%;
+=======
+      width: 80%;
+>>>>>>> test
       max-width: 950px;
       background-color: white;
       padding: 50px 60px;
@@ -190,6 +201,7 @@
     }
 
     .monthly-day-input {
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   gap: 6px;
@@ -203,12 +215,30 @@
   border-radius: 8px;
   font-size: 14px;
 }
+=======
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .monthly-day-input input {
+      width: 270px;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+>>>>>>> test
   </style>
 </head>
 
 <body>
   <div class="form-container">
+<<<<<<< HEAD
     <header th:replace="~{fragment/header :: header}"></header>
+=======
+>>>>>>> test
     <form>
       <h2>기본 진정서 작성 및 첨부</h2>
       <table>
@@ -216,8 +246,15 @@
           <td class="label">진정 종류</td>
           <td colspan="3">
             <div class="radio-box">
+<<<<<<< HEAD
               <label><input type="radio" name="claimType" value="임금체불" checked> 임금체불 진정서</label>
               <label><input type="radio" name="claimType" value="기타"> 기타 진정서</label>
+=======
+              <input type="radio" name="claimType" value="임금체불" id="wageRadio" checked>
+              임금체불 진정서
+              <input type="radio" name="claimType" value="기타" id="etcRadio">
+              기타 진정서
+>>>>>>> test
             </div>
           </td>
         </tr>
@@ -269,7 +306,12 @@
           <td>
             <div class="monthly-day-input">
               <span>매월 </span>
+<<<<<<< HEAD
               <input type="text" name="wageDate" maxlength="2" pattern="[0-9]*" inputmode="numeric" required placeholder="1-31사이의 날짜를 입력하세요.">
+=======
+              <input type="text" name="wageDate" maxlength="2" pattern="[0-9]*" inputmode="numeric" required
+                placeholder="1-31사이의 날짜를 입력하세요.">
+>>>>>>> test
               <span>일</span>
             </div>
           </td>
@@ -323,13 +365,31 @@
       </table>
 
       <div class="btn-box">
+<<<<<<< HEAD
         <button type="button">이전</button>
         <button type="submit">제출</button>
         <button type="button">임시저장</button>
+=======
+        <button type="button" onclick="window.top.location.href='/'">메인</button>
+        <button type="button" onclick="window.top.location.href='/index'">이전</button>
+        <button type="submit">제출</button>
+>>>>>>> test
       </div>
 
     </form>
   </div>
+<<<<<<< HEAD
+=======
+  <script>
+    document.getElementById('wageRadio').addEventListener('click', () => {
+      window.location.href = '/index2-1?t=' + new Date().getTime(); // URL 강제 갱신
+    });
+
+    document.getElementById('etcRadio').addEventListener('click', () => {
+      window.location.href = '/index2-2?t=' + new Date().getTime();
+    });
+  </script>
+>>>>>>> test
 </body>
 
 </html>

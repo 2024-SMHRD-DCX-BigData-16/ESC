@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="ko">
 
 <head>
   <meta charset="UTF-8" />
   <title>진정서</title>
   <link rel="stylesheet" th:href="@{/css/header.css}">
+=======
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>진정서</title>
+>>>>>>> test
   <style>
     body {
       font-family: 'Noto Sans KR', '맑은 고딕', sans-serif;
@@ -17,7 +24,11 @@
     }
 
     .form-container {
+<<<<<<< HEAD
       width: 100%;
+=======
+      width: 80%;
+>>>>>>> test
       max-width: 950px;
       background: white;
       padding: 40px 50px;
@@ -154,7 +165,10 @@
 
 <body>
   <div class="form-container">
+<<<<<<< HEAD
     <header th:replace="~{fragment/header :: header}"></header>
+=======
+>>>>>>> test
     <form>
       <h2>제출자 정보</h2>
       <table>
@@ -174,7 +188,11 @@
           <td colspan="5">
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly>
+<<<<<<< HEAD
               <button type="button" class="postcode-btn" onclick="execDaumPostcode()">우편번호 찾기</button>
+=======
+              <button type="button" class="postcode-btn" onclick="execDaumPostcode()">우편 번호 찾기</button>
+>>>>>>> test
             </div>
             <input type="text" id="roadAddress" name="address" placeholder="도로명 주소" readonly
               style="margin-bottom: 8px;">
@@ -237,7 +255,11 @@
           <td colspan="5">
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <input type="text" id="companyPostcode" name="companyPostcode" placeholder="우편번호" readonly>
+<<<<<<< HEAD
               <button type="button" class="postcode-btn" onclick="execCompanyPostcode()">우편번호 찾기</button>
+=======
+              <button type="button" class="postcode-btn" onclick="execCompanyPostcode()">우편 번호 찾기</button>
+>>>>>>> test
             </div>
             <input type="text" id="companyAddress" name="companyAddress" placeholder="도로명 주소" readonly
               style="margin-bottom: 8px;">
@@ -253,16 +275,25 @@
       </table>
 
       <div class="btn-box">
+<<<<<<< HEAD
         <button type="button">이전</button>
         <button type="submit">다음</button>
         <button type="button">임시저장</button>
+=======
+        <button type="button" onclick="window.top.location.href='/'">메인</button>
+        <button type="button" onclick="window.top.location.href='/index2-1'">다음</button>
+        <!-- <button type="button">임시저장</button> -->
+>>>>>>> test
       </div>
 
       <div class="notice">
         <strong>※ 개인정보처리 안내:</strong> 민원처리를 위해 수집되는 정보는 관련 법령에 따라 안전하게 처리되며, 주민등록번호는 암호화되어 저장됩니다.
       </div>
     </form>
+<<<<<<< HEAD
     <div th:replace="~{fragment/mimichat :: chatbot}"></div>
+=======
+>>>>>>> test
   </div>
 </body>
 
