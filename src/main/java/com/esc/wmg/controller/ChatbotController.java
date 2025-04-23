@@ -42,6 +42,5 @@ public class ChatbotController {
     }
     @GetMapping("/main")
     public String main() {
-        return "main"; // → templates/main.html 로 이동
-    }
+        return "/"; 
 }
