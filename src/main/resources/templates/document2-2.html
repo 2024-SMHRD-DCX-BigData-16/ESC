@@ -1,17 +1,10 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="ko">
-=======
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
->>>>>>> test
 
 <head>
     <meta charset="UTF-8" />
     <title>기타 진정서</title>
-<<<<<<< HEAD
     <link rel="stylesheet" th:href="@{/css/header.css}">
-=======
->>>>>>> test
     <style>
         body {
             font-family: 'Noto Sans KR', '맑은 고딕', sans-serif;
@@ -28,11 +21,7 @@
             padding: 50px 60px;
             border-radius: 20px;
             max-width: 900px;
-<<<<<<< HEAD
-            width: 100%;
-=======
             width: 80%;
->>>>>>> test
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
@@ -193,10 +182,7 @@
 
 <body>
     <div class="form-container">
-<<<<<<< HEAD
         <header th:replace="~{fragment/header :: header}"></header>
-=======
->>>>>>> test
         <form>
             <h2>기타 진정서 작성 및 첨부</h2>
             <table>
@@ -204,15 +190,8 @@
                     <td class="label">진정 종류</td>
                     <td>
                         <div class="radio-box">
-<<<<<<< HEAD
                             <label><input type="radio" name="claimType" value="임금체불"> 임금체불 진정서</label>
                             <label><input type="radio" name="claimType" value="기타" checked> 기타 진정서</label>
-=======
-                            <input type="radio" name="claimType" value="임금체불" id="wageRadio">
-                            임금체불 진정서
-                            <input type="radio" name="claimType" value="기타" id="etcRadio" checked>
-                            기타 진정서
->>>>>>> test
                         </div>
                     </td>
                 </tr>
@@ -253,14 +232,6 @@
             </table>
 
             <div class="btn-box">
-<<<<<<< HEAD
-                <button type="button">이전</button>
-                <button type="submit">제출</button>
-                <button type="button">임시저장</button>
-            </div>
-        </form>
-    </div>
-=======
                 <button type="button" onclick="window.top.location.href='/'">메인</button>
                 <button type="button" onclick="window.top.location.href='/index'">이전</button>
                 <button type="submit">제출</button>
@@ -276,7 +247,6 @@
             window.location.href = '/index2-2?t=' + new Date().getTime();
         });
     </script>
->>>>>>> test
 </body>
 
 </html>
