@@ -40,7 +40,9 @@ public class ChatbotController {
     public String index22() {
         return "index2-2";
     }
+
     @GetMapping("/main")
     public String main() {
-        return "/"; 
+        return "/";
+    }
 }
