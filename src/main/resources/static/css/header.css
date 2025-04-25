@@ -52,6 +52,7 @@
     padding: 16px 64px;
     height: 64px;
     box-sizing: border-box;
+    background-color: #fff;
 }
 
 .logo {
@@ -96,4 +97,3 @@ nav ul li a {
 nav ul li a:hover {
     color: #0088cc;
 }
-
