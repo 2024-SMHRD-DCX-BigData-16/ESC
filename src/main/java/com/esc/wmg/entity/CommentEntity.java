@@ -20,7 +20,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
-
 public class CommentEntity {
 
     @Id

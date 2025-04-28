@@ -108,10 +108,10 @@
               <textarea name="cmt_comment" placeholder="댓글 입력..." class="comment-textarea" required></textarea>
         
               <!-- 게시글 번호 (hidden 필드로 전달) -->
-              <input type="hidden" name="postIdx" value="${post.postIdx}" />
+              <input type="hidden" name="postIdx" th:value="${post.post_idx}" />
         
               <!-- 로그인한 사용자 이메일 (로그인된 사용자 정보 활용) -->
-              <input type="hidden" name="email" value="${loginUser.email}" />
+              <input type="hidden" name="email" th:value="${loginUser.email}" />
         
               <div class="comment-icons">
                 <button type="button"><i class="ri-emotion-line"></i></button> <!-- 이모티콘 버튼 -->
