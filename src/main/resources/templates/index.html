@@ -20,6 +20,7 @@
   <div id="right-frame" class="right-frame">
     <div th:replace="~{fragment/right :: right}"></div>
   </div>
+
   <input type="hidden" id="templateAssistantId" value="{{ template_assistant_id }}">
   <input type="hidden" id="feedbackAssistantId" value="{{ feedback_assistant_id }}">
   <input type="hidden" id="miniAssistantId" value="{{ mini_assistant_id }}">
@@ -97,8 +98,8 @@
       event.preventDefault();
       alert("제출되었습니다.");
       window.location.href = "/";
-
     }
+
 
     // ==============================================================================
     // 2. 진정서 추천 문구 표시
@@ -234,7 +235,7 @@
     // OpenAI 답변을 HTML 포맷으로 변환
     function convertToHtmlFromAiText(rawResponse) {
       const formattedResponse = rawResponse
-      
+
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/---/g, '<hr style="border: 1px solid #e5e7eb; margin: 1rem 0;">')
@@ -640,12 +641,6 @@
 
   </script>
 
-  <!-- Thymeleaf 서버가 렌더링
-  <script th:inline="javascript">
-    const TEMPLATE_ASSISTANT_ID = /*[[${template_assistant_id}]]*/ "default-template-id";
-    const FEEDBACK_ASSISTANT_ID = /*[[${feedback_assistant_id}]]*/ "default-feedback-id";
-    const MINI_ASSISTANT_ID = /*[[${mini_assistant_id}]]*/ "default-mini-id";
-  </script> -->
 </body>
 
 </html>
