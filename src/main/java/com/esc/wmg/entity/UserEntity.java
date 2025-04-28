@@ -25,21 +25,23 @@ public class UserEntity {
     @NonNull
     @Column(length = 50, name = "email")
     private String email;
-    
+
     @NonNull
-    @Column(length = 50 ,name = "nick")
+    @Column(length = 50, name = "nick")
     private String nick;
-    
+
     @NonNull
     @Column(length = 50, name = "pw")
     private String pw;
-    
+
     @NonNull
     @Column(name = "birthdate")
     private LocalDate birthdate;
-    
+
     @NonNull
     @CreationTimestamp
     @Column(name = "joined_at", updatable = false)
     private LocalDateTime joinedAt;
+
+    
 }

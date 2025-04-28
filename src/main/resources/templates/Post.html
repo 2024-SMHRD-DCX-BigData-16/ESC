@@ -117,7 +117,8 @@
             </a>
 
             <!-- 다음 페이지 버튼 -->
-            <a th:if="${currentPage < totalPages - 1}" th:href="@{/post(page=${currentPage + 1})}">
+            <a th:if="${currentPage < totalPages - 1}"
+                th:href="@{/post(page=${currentPage + 1}, category=${category != null ? category : ''})}">
                 <button class="pagination-btn arrow-btn">
                     <i class="ri-arrow-right-s-line"></i>
                 </button>

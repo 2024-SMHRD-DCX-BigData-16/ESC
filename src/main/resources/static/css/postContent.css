@@ -99,12 +99,12 @@ body {
   font-weight: bold;
 }
 
-.post-update-link{
+.post-update-link {
   display: block;
   height: 100%;
 }
 
-.post_update{
+.post_update {
   position: absolute;
   top: 0;
   right: 60px;
@@ -117,12 +117,12 @@ body {
   padding-top: 3px;
 }
 
-.post-delete-link{
+.post-delete-link {
   display: block;
   height: 100%;
 }
 
-.post_delete{
+.post_delete {
   position: absolute;
   top: 0;
   right: 0;
@@ -250,6 +250,123 @@ body {
   text-align: right;
   margin-top: 2rem;
 }
+
+.engagement {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.reactions {
+  display: flex;
+  align-items: center;
+}
+
+.reaction-icons {
+  display: flex;
+  margin-right: 8px;
+}
+
+.reaction-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.reaction-icon.like {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.reaction-icon.love {
+  background: #ef4444;
+  color: #fff;
+  margin-left: -4px;
+}
+
+.action-buttons {
+  justify-content: space-between;
+  padding: 8px 16px;
+  display: flex;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+  margin-top: 10px;
+}
+
+.action-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-size: 17px;
+}
+
+.action-button:hover {
+  background: #f9fafb;
+}
+
+.comment-input-area {
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+.comment-box {
+  margin-left: 8px;
+  flex: 1;
+  position: relative;
+}
+
+.comment-textarea {
+  width: 100%;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 40px 8px 16px;
+  font-size: 14px;
+  color: #374151;
+  min-height: 40px;
+  max-height: 120px;
+  overflow-y: auto;
+  resize: none;
+}
+
+.comment-icons {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.comment-icons button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.send-button {
+  color: #4f46e5;
+}
+
+.send-button:hover {
+  color: #4338ca;
+}
+
+
 
 /* 푸터 버튼 영역 */
 .notice-footer {
