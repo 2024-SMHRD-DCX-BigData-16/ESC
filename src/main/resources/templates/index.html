@@ -234,18 +234,18 @@
     // OpenAI 답변을 HTML 포맷으로 변환
     function convertToHtmlFromAiText(rawResponse) {
       const formattedResponse = rawResponse
-
-        .replace(/\n/g, "<br>")
+      
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/---/g, '<hr style="border: 1px solid #e5e7eb; margin: 1rem 0;">')
-        .replace(/^# (.*)$/gm, '<h1>$1</h1>') // H1
-        .replace(/^## (.*)$/gm, '<h2>$1</h2>') // H2
         .replace(/^### (.*)$/gm, '<h3>$1</h3>') // H3
+        .replace(/^## (.*)$/gm, '<h2>$1</h2>') // H2
+        .replace(/^# (.*)$/gm, '<h1>$1</h1>') // H1
         .replace(
           /(https?:\/\/[^\s\)<]+)/g,
           '<a href="$1" target="_blank" style="color:#2563eb; text-decoration:underline;">$1</a>'
-        );
+        )
+        .replace(/\n/g, "<br>");
 
       return formattedResponse;
     }
