@@ -20,13 +20,12 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
-
 public class CommentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cmt_idx")
-    private long cmt_idx;
+    private long cmtIdx;
 
     @NonNull
     @Column(name = "post_idx", nullable = false)
@@ -38,15 +37,13 @@ public class CommentEntity {
 
     @NonNull
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @NonNull
     @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "parent_idx")
-    private Long parent_idx; 
-
-
+    private Long parentIdx;
 
 }

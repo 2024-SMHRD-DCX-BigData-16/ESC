@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Comment {
 
-    private long cmt_idx;
+    private long cmtIdx;
     private long postIdx;
     private String cmt_content;
     private LocalDateTime created_at;
     private String email;
-    private long parent_idx;
+    private long parentIdx;
 
 }
