@@ -13,6 +13,8 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.esc.wmg.config.S3Config;
 
+import jakarta.transaction.Transactional;
+
 
 @Service
 public class ImageService {
@@ -32,6 +34,7 @@ public class ImageService {
     // private final String localLocation =
     // new File(System.getProperty("user.dir"), "src/main/resources/static/s3/").getAbsolutePath();
 
+    @Transactional
     public String imageUpload(MultipartRequest request) throws IOException {
 
         MultipartFile file = request.getFile("upload");
