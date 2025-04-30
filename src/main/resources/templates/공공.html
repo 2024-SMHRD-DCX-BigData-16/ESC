@@ -123,36 +123,73 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    let chartInstance = null;
-    
-    async function loadData(sortBy = 'year', order = 'asc') {
-        const res = await fetch(``);
-        const data = await res.json();
-    
-        const labels = data.map(d => `${d.year} - ${d.law_article}`);
-        const counts = data.map(d => d.count);
-    
-        if (chartInstance) chartInstance.destroy();
-    
-        const ctx = document.getElementById('myChart').getContext('2d');
-        chartInstance = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: '위반 건수',
-                    data: counts
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
+        let chartInstance = null;
+
+        async function loadData(sortBy = 'penalty_year', order = 'asc') {
+            const res = await fetch('/static/csv/penalty_stats.csv');
+            const csvText = await res.text();
+
+            function csvToJson(csv) {
+                const lines = csv.trim().split('\n');
+                const headers = lines[0].split(',');
+                return lines.slice(1).map(line => {
+                    const values = line.split(',');
+                    const obj = {};
+                    headers.forEach((header, idx) => {
+                        obj[header.trim()] = values[idx] ? values[idx].trim() : '';
+                    });
+                    return obj;
+                });
             }
-        });
-    }
-    
-    document.addEventListener("DOMContentLoaded", () => loadData());
+
+            let data = csvToJson(csvText);
+
+            // 숫자형 필드 정리 (문자열 → 숫자)
+            data = data.map(d => ({
+                ...d,
+                penalty_year: parseInt(d.penalty_year),
+                count: parseInt(d.count)
+            }));
+
+            // 정렬 적용
+            data.sort((a, b) => {
+                if (order === 'asc') {
+                    return a[sortBy] > b[sortBy] ? 1 : -1;
+                } else {
+                    return a[sortBy] < b[sortBy] ? 1 : -1;
+                }
+            });
+
+            const labels = data.map(d => `${d.penalty_year} - ${d.law_article}`);
+            const counts = data.map(d => d.count);
+
+            if (chartInstance) chartInstance.destroy();
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '위반 건수',
+                        data: counts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // 페이지 로드시 기본 정렬
+        document.addEventListener("DOMContentLoaded", () => loadData());
     </script>
 </body>
 
