@@ -126,7 +126,7 @@
     let chartInstance = null;
     
     async function loadData(sortBy = 'year', order = 'asc') {
-        const res = await fetch(`/chart-data?sort=${sortBy}&order=${order}`);
+        const res = await fetch(``);
         const data = await res.json();
     
         const labels = data.map(d => `${d.year} - ${d.law_article}`);
