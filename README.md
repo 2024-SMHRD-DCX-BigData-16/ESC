@@ -14,12 +14,13 @@
 ![image](https://github.com/user-attachments/assets/3e158939-73d4-4fc3-b2ec-080e062d4aa5)
 
 🛠️ 기술 스택
-구분	기술 스택
+
 Frontend	HTML, CSS, JavaScript, jQuery
 Backend	Java, Spring Boot, Spring Data JPA, Thymeleaf, Tomcat
 Database	MySQL
 Data Analysis & Modeling	Python, Pandas, Numpy, Scikit-learn, Selenium, BeautifulSoup, Jupyter Notebook, Transformers (Hugging Face), PyTorch, Tensorflow
 Tools	Git, GitHub, Figma
+
 ⚙️ 시스템 아키텍처
 ![image](https://github.com/user-attachments/assets/333dfb3a-6779-4292-b056-61b4d3919e73)
 
