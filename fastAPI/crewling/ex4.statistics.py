@@ -98,16 +98,16 @@ def run_job():
     load_dotenv('.env')
     DB_URL = os.getenv("DB_URL")
     if not DB_URL:
-        print("❌ DB_URL 환경 변수가 없습니다.")
+        print(" DB_URL 환경 변수가 없습니다.")
         return
 
     engine = create_engine(DB_URL)
 
     try:
         df_result.to_sql(name='tbl_statistics', con=engine, if_exists='append', index=False)
-        print(f"\n✅ 총 {len(df_result)}건 DB 저장 완료")
+        print(f"\n 총 {len(df_result)}건 DB 저장 완료")
     except Exception as e:
-        print(f"❌ DB 저장 실패: {e}")
+        print(f" DB 저장 실패: {e}")
 
 
 if __name__ == "__main__":
