@@ -7,19 +7,19 @@ from datetime import datetime, timedelta
 
 def run_job():
     if not load_dotenv('.env'):
-        raise FileNotFoundError("❌ .env 파일을 찾을 수 없습니다. 경로를 확인하세요.")
+        raise FileNotFoundError(" .env 파일을 찾을 수 없습니다. 경로를 확인하세요.")
     
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise ValueError("❌ OPENAI_API_KEY가 .env 파일에 정의되어 있지 않습니다.")
+        raise ValueError(" OPENAI_API_KEY가 .env 파일에 정의되어 있지 않습니다.")
 
     client = OpenAI(api_key=api_key)
 
     gtr_ymd = (datetime.today() - timedelta(days=1)).strftime('%Y%m%d')
 
-    file_path = f'/home/mentoring/result/news_{gtr_ymd}_result.csv'
+    file_path = f'/result/news_{gtr_ymd}_result.csv'
     if not os.path.exists(file_path):
-        print(f"⚠️ 파일 없음: {file_path}")
+        print(f"⚠ 파일 없음: {file_path}")
         return
     
     top_df = pd.read_csv(file_path)
@@ -55,18 +55,18 @@ def run_job():
             top_list.append(top_dict)
 
         except Exception as e:
-            print(f"⚠️ 클러스터 {top_idx} 처리 중 오류 발생: {e}")
+            print(f"⚠ 클러스터 {top_idx} 처리 중 오류 발생: {e}")
             continue
 
     if not top_list:
-        print("⚠️ 추출된 이슈 키워드가 없습니다.")
+        print("⚠ 추출된 이슈 키워드가 없습니다.")
         return
 
     df = pd.DataFrame(top_list)
     df['rnk'] = df.index + 1
     df['date'] = datetime.now()   
 
-    df.to_csv(f'/home/mentoring/result/keyword_{gtr_ymd}.csv', index=False, encoding='utf-8-sig')
+    df.to_csv(f'/result/keyword_{gtr_ymd}.csv', index=False, encoding='utf-8-sig')
 
     DB_URL = os.getenv("DB_URL")
     if not DB_URL:
@@ -76,7 +76,7 @@ def run_job():
 
     try:
         df.to_sql(name='tbl_news_issue', con=engine, if_exists='append', index=False)
-        print(f"✅ {len(df)}건 DB 저장 완료")
+        print(f" {len(df)}건 DB 저장 완료")
     except Exception as e:
         print(f"❌ DB 저장 실패: {e}")
 
