@@ -8,13 +8,13 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import random
 
-urlString = 'http://qt.some.co.kr/TrendMap/JSON/ServiceHandler'
+urlString = os.getenv("urlString")
 keyword = '(고용보험||임금체불||산재보험||부당해고||실업급여||근로계약||산업재해||업무상질병)&&~(#@VK#S1#스포츠)&&~(#@VK#S1#TV연예)'
 
 def run_job():
     today = datetime.today()
     date_str = today.strftime('%Y%m%d')
-    print(f"📆 자동 수집 기간: {date_str}")
+    print(f" 자동 수집 기간: {date_str}")
 
     doc_list = []
 
@@ -38,14 +38,14 @@ def run_job():
             documents = json_data.get('item', {}).get('documentList', [])
             doc_list += documents
         except Exception as e:
-            print(f"❌ 요청 or 응답 파싱 오류: {e}")
+            print(f" 요청 or 응답 파싱 오류: {e}")
             return
 
         time.sleep(1)
 
     print(f"📄 수집된 문서 수: {len(doc_list)}")
     if not doc_list:
-        print("⚠️ 문서 없음. 종료.")
+        print("⚠ 문서 없음. 종료.")
         return
 
     df = pd.DataFrame(doc_list)
@@ -77,7 +77,7 @@ def run_job():
             image_url = og_image['content'] if og_image and og_image.get('content') else None
         except Exception as e:
             if i < 3:  
-                print(f"❌ 이미지 추출 실패: {url} ({e})")
+                print(f" 이미지 추출 실패: {url} ({e})")
             image_url = None
         image_urls.append(image_url)
 
@@ -91,14 +91,14 @@ def run_job():
     try:
         engine = create_engine(DB_URL)
     except Exception as e:
-        print(f"❌ DB 연결 실패: {e}")
+        print(f" DB 연결 실패: {e}")
         exit()
 
     try:
         final_df.to_sql(name='tbl_news', con=engine, if_exists='append', index=False)
-        print(f"✅ DB 저장 완료 - {len(final_df)}건")
+        print(f" DB 저장 완료 - {len(final_df)}건")
     except Exception as e:
-        print(f"❌ DB 저장 실패: {e}")
+        print(f" DB 저장 실패: {e}")
 
 if __name__ == "__main__":
     run_job()
