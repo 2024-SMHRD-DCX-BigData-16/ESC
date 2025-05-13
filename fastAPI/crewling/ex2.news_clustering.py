@@ -65,7 +65,7 @@ def run_job():
     keyword = topic_combination(tr_kwd)
     keyword = '(' + keyword + ')&&~(#@VK#S1#스포츠)'
 
-    urlString = 'http://qt.some.co.kr/TrendMap/JSON/ServiceHandler'
+    urlString = os.getenv("urlString")
 
     yesterday = datetime.today() - timedelta(days=1)
     start_date = yesterday.strftime('%Y%m%d')
@@ -268,7 +268,7 @@ def run_job():
     DB_URL = os.getenv("DB_URL")
 
     if not DB_URL:
-        raise ValueError("❌ DB_URL 환경 변수가 설정되지 않았습니다.")
+        raise ValueError(" DB_URL 환경 변수가 설정되지 않았습니다.")
 
     engine = create_engine(DB_URL)
     top_df.to_sql(name='tbl_news_cluster', con=engine, if_exists='append', index=False)
