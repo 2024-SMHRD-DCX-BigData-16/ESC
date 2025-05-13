@@ -15,19 +15,19 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def run_job():
     gtr_ymd = (datetime.today() - timedelta(days=1)).strftime('%Y%m%d')
-    csv_path = f'/home/mentoring/result/keyword_{gtr_ymd}.csv'
+    csv_path = f'/result/keyword_{gtr_ymd}.csv'
 
     if not os.path.exists(csv_path):
-        print(f"❌ 파일이 존재하지 않습니다: {csv_path}")
+        print(f" 파일이 존재하지 않습니다: {csv_path}")
         return
 
     df_keyword = pd.read_csv(csv_path)
     if 'issue_keyword' not in df_keyword.columns:
-        print(f"❌ 'issue_keyword' 컬럼이 없습니다.")
+        print(f" 'issue_keyword' 컬럼이 없습니다.")
         return
 
     keywords = df_keyword['issue_keyword'].dropna().unique().tolist()
-    print(f"🔍 총 {len(keywords)}개의 키워드 수집 예정")
+    print(f" 총 {len(keywords)}개의 키워드 수집 예정")
 
     all_results = []
 
@@ -59,7 +59,6 @@ def run_job():
                 href = a.get_attribute('href')
                 title = a.text.strip()
 
-                # ✅ info 텍스트 추출: 같은 카드 영역 내 p 태그
                 try:
                     grandparent = a.find_element(By.XPATH, '../../..')  # 혹은 적절히 상위 계층 조정
                     info = grandparent.find_element(By.CSS_SELECTOR, 'p.gsbl_info').text.strip()
@@ -79,18 +78,18 @@ def run_job():
                         "keyword": keyword,
                         "title": title,
                         "range": range_path,
-                        "info": info,  # ✅ 기관/출처 정보 포함
+                        "info": info, 
                         "url": url,
                         "created_at": datetime.now(),
                     })
 
         except Exception as e:
-            print(f"❌ 수집 실패: {e}")
+            print(f" 수집 실패: {e}")
         finally:
             driver.quit()
 
     if not all_results:
-        print("❗ 수집된 결과가 없습니다.")
+        print(" 수집된 결과가 없습니다.")
         return
 
     df_result = pd.DataFrame(all_results)
